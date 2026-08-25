@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codex ACP Demo</title>
+</head>
+<body>
+    <h1>codex ACP Demo</h1>
+
+    <from id="chat-form">
+        <textarea
+        id="message"
+        row="6"
+        cols="60"
+        placeholder="输入想和codex聊什么"
+        required
+        ></textarea>
+        <br>
+        <button id="send-button" type="submit">发送</button>
+    </from>
+
+    <h2>codex 回复</h2>
+    <pre id="answer"></pre>
+    <script type="module" src="./app.js"></script>
+</body>
+</html>
