@@ -18,7 +18,7 @@ async function handler(e)
     output.textContent = "Codex 正在处理......";
     try
     {
-        const response = await fetch("/api/chat", {// /api/chat对应 http://localhost:3000/api/chat，及 当前网站地址+路由/api/chat
+        const response = await fetch("http://localhost:3000/api/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -1,10 +1,10 @@
-import * as acp from "@agentclientprotocol/sdk";//acp
+import * as acp from "@agentclientprotocol/sdk";//acp的软件开发工具
 import express from "express";//浏览器和服务器之间http通信
 import { spawn } from "node:child_process";//spawn()是Node.js 用来启动子进程的函数（启动外部命令，如git python）
 import { Readable, Writable } from "node:stream";//Readable:可读数据流 Writable：可写数据流
 
 const app = express();//创建一个 Express Web 应用(能执行相应的处理逻辑的后端服务器)
-const port = 5500;//空闲端口
+const port = 3000;//空闲端口
 
 let currentAnswer = "";//codex回答
 let sessionId = "";//当前ACP会话的唯一编号
@@ -102,12 +102,6 @@ const initializeResponse = await
 const apiKey =
     process.env.CODEX_API_KEY ??
     process.env.OPENAI_API_KEY;
-
-if (!apiKey)
-{
-    currentAnswer = "apiKey未填写";
-    return;
-}
 
 if (
     apiKey &&
