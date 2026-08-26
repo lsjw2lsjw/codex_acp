@@ -4,7 +4,7 @@ const output = document.getElementById("answer");
 const send = document.getElementById("send-button");
 form.addEventListener("submit", handler);
 
-async function handler()
+async function handler(e)
 {
     e.preventDefault();
 
@@ -15,10 +15,10 @@ async function handler()
     }
 
     send.disabled = true;
-    output.testContent = "Codex 正在处理......";
+    output.textContent = "Codex 正在处理......";
     try
     {
-        const response = await fetch("/api/chat", {
+        const response = await fetch("/api/chat", {// /api/chat对应 http://localhost:3000/api/chat，及 当前网站地址+路由/api/chat
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -30,12 +30,12 @@ async function handler()
         {
             throw new Error(result.error ?? "请求失败");
         }
-        output.testContent = result.answer;
+        output.textContent = result.answer;
     } catch (err)
     {
-        output instanceof Error ? error.message : "发生未知错误";
+        err instanceof Error ? err.message : "发生未知错误";
     } finally
     {
-        input.disabled = false;
+        send.disabled = false;
     }
 }
